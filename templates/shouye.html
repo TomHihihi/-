@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/backgound.css" type="text/css">
+  <title>傣医诊疗系统-首页</title>
+  <link type="text/css" href="../static/index.css" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .one {
+      border: solid 5px silver;
+      width: 900px;
+      display: flex;
+      /* 弹性盒子默认水平排列 */
+      flex-direction: column;
+      /* 轴的翻转 */
+      /* column,则为列排列 */
+      flex-wrap: wrap;
+      height: 600px;
+      /* justify-content: center; */
+      /* 主轴居中 */
+      align-content: center;
+      /* 侧轴居中 */
+      margin: 0 auto;
+    }
+
+    body {
+      padding-left: 100px;
+      padding-top: 100px;
+    }
+
+    .one * {
+      height: 100px;
+      margin: 25px;
+    }
+
+    div:nth-child(1) {
+      display: flex;
+      width: 200px;
+      height: 550px;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      align-items: center;
+    }
+
+    div:nth-child(2) {
+      width: 200px;
+      height: 250px;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      align-items: center;
+    }
+
+    div:nth-child(3) {
+      width: 200px;
+      height: 250px;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      align-items: center;
+    }
+
+    div:nth-child(4) {
+      width: 200px;
+      height: 550px;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      align-items: center;
+    }
+
+    button {
+      background-color: greenyellow;
+      color: black;
+      width: 130px;
+      font-size: 20px;
+    }
+
+    button:hover {
+      background-color: orange;
+    }
+
+    .navul {
+      list-style: none;
+      display: flex;
+      background-color: rgb(134, 246, 130);
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;">
+  <main class="one">
+    <div>
+      <button><a href="shili.html">进入登录，注册页面</a></button>
+    </div>
+    <div>
+      <button><a href="shili.html">挂号</a></button>
+    </div>
+    <div>
+      <button><a href="shili.html">诊断病症</a></button>
+    </div>
+    <div>
+      <button><a href="shili.html">开方</a></button>
+    </div>
+  </main>
+</body>
+
+
+</html>

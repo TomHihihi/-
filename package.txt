@@ -1,0 +1,22 @@
+####pip install xxx
+
+flask
+flask_migrate
+flask_sqlalchemy
+pymysql  
+wtforms
+
+```
+数据库在config里面配置
+···
+页面都在“templates”文件夹里面
+···
+启动在"app.py"里面，直接运行就可以启动
+···
+需要自行修改的文件如下：
+forms.py:修改提交表单的限制要求与提示
+models.py：指定提交表单的格式
+auth.py：实现页面之间的路由以及前端与后端数据的连接
+···
+本系统采用了flask连接前后端。前端使用html，后端用flask管理。
+

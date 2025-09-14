@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./static/css/init.css">
+  <link rel="stylesheet" href="./static/css/detail.css">
+  <title>患者查看自己病情页面</title>
+  <style>
+    .mainb {
+      padding: 170px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .loin {
+      width: 350px;
+      height: 400px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    form {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .header {
+      width: 270px;
+    }
+
+
+    table {
+      border: 1;
+      width: 500;
+      align-content: center;
+      align-self: center;
+      background-color: rgb(128, 254, 128);
+      margin: 0 auto;
+    }
+
+    .container {
+      background-color: white;
+      height: 800px;
+      align-items: center;
+      width: 600px;
+      align-self: center;
+      margin: 0 auto;
+    }
+
+    span {
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgb(0, 12, 13);
+      padding: Spx 10px;
+    }
+
+    nav a:hover {
+      background-color: aquamarine;
+    }
+
+    .navul {
+      list-style: none;
+      display: flex;
+      background-color: rgb(134, 246, 130);
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;">
+  {% if patient_user %}
+  <nav>
+    <ul class="navul">
+      <li><span style="margin: 0 30px 0 0;">当前登录：{{ patient_user.username }}</span></li>
+      <li><span><a href="{{ url_for('auth.logout') }}">退出登录</a></span></li>
+    </ul>
+  </nav>
+  {% else %}
+  <ul class="navul">nonononon</ul>
+  {% endif %}
+  <form id="myform" method="GET" action="{{ url_for('auth.seacher_patient_dzkfdao') }}">
+    <input class="" type="search" placeholder="关键字" aria-label="Seacher_patient_dzkfdao" name="m"
+      value="{{ patient_user.username }}" style="display: none;">
+    <button class="" onclick="chaxun()">点击查询自己药方</button>
+  </form>
+  <div class="container">
+    <table id="anniu" border="1" width="500" align="center" cellspacing="0" style="display: block;">
+      {% for lii in liis %}
+      <tr>
+        <th>患者姓名</th>
+        <th>遗传病史</th>
+        <th>既往病史</th>
+        <th>过敏史</th>
+        <th>目</th>
+        <th>鼻</th>
+        <th>耳</th>
+        <th>唇</th>
+        <th>舌</th>
+        <th>毛发</th>
+        <th>脸色</th>
+        <th>四肢</th>
+        <th>皮肤状态</th>
+        <th>发病部位</th>
+        <th>精神状态</th>
+        <th>确定病因</th>
+        <th>主治医师</th>
+        <th>病症查询时间</th>
+      </tr>
+      <tr>
+        <td>{{ lii.patient }}</td>
+        <td>{{ lii.genetic_lii }}</td>
+        <td>{{ lii.past_lii }}</td>
+        <td>{{ lii.allergy_lii }}</td>
+        <td>{{ lii.e5_eye }}</td>
+        <td>{{ lii.e5_nose }}</td>
+        <td>{{ lii.e5_ear }}</td>
+        <td>{{ lii.e5_lip }}</td>
+        <td>{{ lii.e5_tongue }}</td>
+        <td>{{ lii.hair }}</td>
+        <td>{{ lii.face }}</td>
+        <td>{{ lii.limb }}</td>
+        <td>{{ lii.skin }}</td>
+        <td>{{ lii.lii_site }}</td>
+        <td>{{ lii.mentality }}</td>
+        <td>{{ lii.etiology }}</td>
+        <td>{{ lii.doctor }}</td>
+        <td>{{ lii.join_time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    </form>
+    <div><a href="{{ url_for('auth.logout') }}">退出登录</a></div>
+
+  </div>
+
+
+</body>
+<script>
+  var anniu = document.getElementById('anniu')
+  var form = document.getElementById('myform')
+  function chaxun() {
+    form.submit();
+    anniu.style.display = 'block'
+  }
+</script>
+
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link type="text/css" href="../static/ceshi.css" rel="stylesheet"> -->
+</head>
+
+<body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;">
+  <div class="onlyone">
+    <nav>
+      <ul class="navul">
+        <li><a href="/auth/doctor_nav_hzgl">患者管理</a></li>
+        <li><a href="/auth/doctor_nav_bzfx">病症分析</a></li>
+        <li><a href="/auth/doctor_nav_dzkf">对症开方</a></li>
+      </ul>
+    </nav>
+
+    <div class="mainb">
+      <div class="loin">
+        <form method="POST">
+          <div class="form-group">
+            <label for="exampleInputEmail1">患者姓名</label>
+            <input type="text" class="header" name="patient">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">遗传病史</label>
+            <input type="password" class="header" name="genetic_lii">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">过往病史</label>
+            <input type="password" class="header" name="past_lii">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">过敏史</label>
+            <input type="text" class="header" name="allergy_lii">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">目</label>
+            <input type="text" class="header" name="e5_eye">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">鼻</label>
+            <input type="text" class="header" name="e5_nose">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">耳</label>
+            <input type="text" class="header" name="e5_ear">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">唇</label>
+            <input type="text" class="header" name="e5_lip">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">舌</label>
+            <input type="text" class="header" name="e5_tongue">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">毛发</label>
+            <input type="text" class="header" name="hair">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">脸色</label>
+            <input type="text" class="header" name="face">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">四肢</label>
+            <input type="text" class="header" name="limb">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">皮肤</label>
+            <input type="text" class="header" name="skin">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">发病部位</label>
+            <input type="text" class="header" name="lii_site">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">精神状态</label>
+            <input type="text" class="header" name="mentality">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">确定病因</label>
+            <input type="text" class="header" name="etiology">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">主治医师舌</label>
+            <input type="text" class="header" name="doctor">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">日期</label>
+            <input type="text" class="header" name="join_time">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">保存提交</button>
+          <a href="/auth/doctor_nav_hzgl"><button type="button">刷新</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

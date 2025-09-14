@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医生诊疗平台(admin用户)--患者管理</title>
+  <style>
+    .navul {
+      list-style: none;
+      display: flex;
+      background-color: rgb(134, 246, 130);
+      padding: 10px;
+    }
+
+    /* li {
+      margin: 0 auto;
+    } */
+
+    nav a {
+      text-decoration: none;
+      color: rgb(0, 12, 13);
+      padding: Spx 10px;
+    }
+
+    nav a:hover {
+      background-color: aquamarine;
+    }
+
+    table {
+      border: 1;
+      width: 500;
+      align-content: center;
+      align-self: center;
+      background-color: rgb(208, 231, 180);
+      margin: 0 auto;
+
+    }
+
+    button {
+      flex-shrink: 0;
+      width: 64px;
+      height: 27px;
+      border-radius: 27px;
+    }
+  </style>
+</head>
+
+<!-- <body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;"> -->
+
+<form>
+  <div class="container">
+    <form class="" method="GET" action="{{ url_for('auth.search_ad') }}">
+      <input class="" type="search" placeholder="关键字" aria-label="Search" name="w">
+      <button class="" type="submit">搜索</button>
+    </form>
+    <table border="1" width="1000" align="center" cellspacing="0">
+      {% for patient_user in patients %}
+      <tr>
+        <th>序号</th>
+        <th>患者姓名</th>
+        <th>性别</th>
+        <th>民族</th>
+        <th>身份证号</th>
+        <th>个人联系电话</th>
+        <th>亲属联系电话</th>
+        <th>民族</th>
+        <th>时间</th>
+      </tr>
+      <tr>
+        <td>{{ patient_user.id }}</td>
+        <td>{{ patient_user.username }}</td>
+        <td>{{ patient_user.sex }}</td>
+        <td>{{ patient_user.nation }}</td>
+        <td>{{ patient_user.id_number }}</td>
+        <td>{{ patient_user.tel }}</td>
+        <td>{{ patient_user.re_tel }}</td>
+        <td>{{ patient_user.nation }}</td>
+        <td>{{ patient_user.join_time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  </body>
+
+</html>

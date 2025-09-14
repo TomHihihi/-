@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医生诊疗平台(admin用户)--医生管理</title>
+  <style>
+    .navul {
+      list-style: none;
+      display: flex;
+      background-color: rgb(134, 246, 130);
+      padding: 10px;
+    }
+
+    /* li {
+      margin: 0 auto;
+    } */
+
+    nav a {
+      text-decoration: none;
+      color: rgb(0, 12, 13);
+      padding: Spx 10px;
+    }
+
+    nav a:hover {
+      background-color: aquamarine;
+    }
+
+    table {
+      border: 1;
+      width: 500;
+      align-content: center;
+      align-self: center;
+      background-color: rgb(208, 231, 180);
+      margin: 0 auto;
+
+    }
+
+    button {
+      flex-shrink: 0;
+      width: 64px;
+      height: 27px;
+      border-radius: 27px;
+    }
+  </style>
+</head>
+
+<!-- <body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;"> -->
+
+<body>
+  <form class="" method="GET" action="{{ url_for('qa.search_doctor') }}">
+    <input class="" type="search" placeholder="关键字" aria-label="Search_doctor" name="e">
+    <button class="" type="submit">搜索</button>
+  </form>
+
+  <div class="container">
+    <div style="font-size: 20px; margin: 10px;">肠胃科挂号单数:{{ clms|length }}</div><button>切换科室</button>
+    <form action="/auth/del" method="POST">
+      <span style="font-size: 15px;">请输入想要删除挂号信息的患者姓名:</span>
+      <input type="text" name="patient">
+      <button type="submit">删除</button>
+      <div>
+
+      </div>
+    </form>
+    <table border="1" width="500" align="center" cellspacing="0">
+      {% for clm in clms %}
+      <tr>
+        <th>序号</th>
+        <th>患者姓名</th>
+        <th>所挂科室</th>
+        <th>门诊医生</th>
+        <th>医生职称</th>
+        <th>预约时间</th>
+        <th>总计花费</th>
+        <th>挂号单创建时间</th>
+      </tr>
+      <tr>
+        <td>{{ clm.id }}</td>
+        <td>{{ clm.patient }}</td>
+        <td>{{ clm.workad }}</td>
+        <td>{{ clm.doctor }}</td>
+        <td>{{ clm.jl }}</td>
+        <td>{{ clm.time }}</td>
+        <td>{{ clm.cost }}</td>
+        <td>{{ clm.join_time }}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+
+
+</body>
+
+</html>

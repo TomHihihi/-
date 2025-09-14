@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./static/css/init.css">
+    <link rel="stylesheet" href="./static/css/detail.css">
+    <title>患者挂号页面</title>
+    <style>
+        .mainb {
+            padding: 170px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loin {
+            width: 350px;
+            height: 400px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        form {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            width: 270px;
+        }
+
+
+        table {
+            border: 1;
+            width: 500;
+            align-content: center;
+            align-self: center;
+            background-color: rgb(128, 254, 128);
+            margin: 0 auto;
+        }
+
+        .container {
+            background-color: white;
+            height: 700px;
+            align-items: center;
+            width: 600px;
+            align-self: center;
+            margin: 0 auto;
+            border: 2px solid rgb(9, 117, 240);
+        }
+
+        span {
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(0, 12, 13);
+            padding: Spx 10px;
+        }
+
+        nav a:hover {
+            background-color: aquamarine;
+        }
+
+        .navul {
+            list-style: none;
+            display: flex;
+            background-color: rgb(134, 246, 130);
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body background="../static/images/27.jpg"
+    style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;">
+    {% if patient_user %}
+    <nav>
+        <ul class="navul">
+            <li><span style="margin: 0 30px 0 0;">当前登录：{{ patient_user.username }}</span></li>
+            <li><span><a href="{{ url_for('auth.logout') }}">退出登录</a></span></li>
+        </ul>
+    </nav>
+    {% else %}
+    <ul class="navul">nonononon</ul>
+    {% endif %}
+    <form class="" method="GET" action="{{ url_for('qa.searchdc') }}">
+        <input class="" type="search" placeholder="关键字" aria-label="Searchdc" name="x">
+        <button class="" type="submit">搜索</button>
+    </form>
+    <div class="container">
+        <button onclick="limit_gua()">刷新</button>
+        <table border="1" width="350" align="center" cellspacing="0">
+            <tr>
+                <div id="changwei" style="display: block;">肠胃科<br>
+                    <form action="/auth/changwei_liu_mor" method="POST">
+                        <span id="changwei_liu_mor" style="display: block;">
+                            肠胃科--刘医生--特级医师--时间:9:00——11:00--费用50 挂号数量:{{ clms|length }}/20</h3>
+                            <input name="patient" value="{{ patient_user.username }}" style="display: none;">
+                            <button id="registerBtn_liu_mor" type="submit">点击挂号</button>
+                        </span>
+                    </form>
+                    <span id="changwei_liu_aft" style="display: block;">
+                        肠胃科--刘医生--特级医师--时间:14:00——16:00--费用50
+                        <button id="registerBtn_liu_aft">点击挂号</button>
+                    </span>
+                    <span id="changwei_liu_even" style="display: block;">
+                        肠胃科--刘医生--特级医师--时间:20:00——22:00--费用50
+                        <button id="registerBtn_liu_eve">点击挂号</button>
+                    </span>
+                </div>
+                <div id="changwei" style="display: block;">康复科<br>
+                    <form action="/auth/changwei_liu_mor" method="POST">
+                        <span id="changwei_liu_mor" style="display: block;">
+                            康复科--聂医生--特级医师--时间:9:00——11:00--费用50 挂号数量:11/20</h3>
+                            <input name="patient" value="{{ patient_user.username }}" style="display: none;">
+                            <button id="registerBtn_liu_mor" type="submit">点击挂号</button>
+                        </span>
+                    </form>
+                    <span id="changwei_liu_aft" style="display: block;">
+                        康复科--聂医生--特级医师--时间:14:00——16:00--费用50
+                        <button id="registerBtn_liu_aft">点击挂号</button>
+                    </span>
+                    <span id="changwei_liu_even" style="display: block;">
+                        康复科--聂医生--特级医师--时间:20:00——22:00--费用50
+                        <button id="registerBtn_liu_eve">点击挂号</button>
+                    </span>
+                </div>
+            </tr>
+            <!-- <tr>
+                    <div id="neike" style="display: block;">
+
+                    </div>
+                </tr>
+                <tr>
+                    <div id="kangfu" style="display: block;">
+
+                    </div>
+                </tr> -->
+        </table>
+        <form id="myform" method="GET" action="{{ url_for('auth.seacher_patient_bzfx') }}">
+            <input class="" type="search" placeholder="关键字" aria-label="seacher_patient_bzfx" name="l"
+                value="{{ patient_user.username }}" style="display: none;">
+            <button class="" onclick="chaxun()">点击查询自己病症</button>
+        </form>
+
+        <!-- <form id=" myform" method="post" action="/auth/patient_bzfx">
+            <input class="" type="text" value="小明" style="display: none;" name="patient">
+            <button class="" type="submit">挂号完成，点击查询自己药方</button>
+        </form> -->
+    </div>
+
+
+</body>
+<script>
+    var nameq = '{{ patient_user.username }}'
+    var changwei_liu_mor = document.getElementById('changwei_liu_mor')
+    var changwei_liu_aft = document.getElementById('changwei_liu_aft');
+    var changwei_liu_even = document.getElementById('changwei_liu_even');
+    var count_11 = '{{ clms|length }}'
+
+
+    function limit_gua() {
+        console.log(nameq)
+        console.log('123')
+        if (count_11 >= 20) {
+            changwei_liu_mor.style.display = 'none'
+
+        }
+    }
+    $(function () {
+        $('#changwei_liu_mor').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/auth/changwei_liu_mor',
+                data: { defaultData: '{{ patient_user.username }}' },
+                success: function (response) {
+                    alert(response.message);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    })
+
+    $(document).ready(function () {
+        $('#registerBtn_liu_aft').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/changwei_liu_aftModel',
+                patient: nameq,
+                success: function (response) {
+                    alert(response.message);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('#registerBtn_liu_eve').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/changwei_liu_eveModel',
+                patient: nameq,
+                success: function (response) {
+                    alert(response.message);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+    var anniu = document.getElementById('anniu')
+    var form = document.getElementById('myform')
+    function chaxun() {
+        form.submit();
+        anniu.style.display = 'block'
+    }
+</script>
+
+
+</html>

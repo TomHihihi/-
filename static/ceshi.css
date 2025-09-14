@@ -1,0 +1,66 @@
+.onlyone {
+  align-items: center;
+  width: 1000px;
+  height: 3000px;
+  background-color: pink;
+  margin: 0 auto;
+}
+
+.navul {
+  list-style: none;
+  display: flex;
+  background-color: rgb(134, 246, 130);
+  padding: 10px;
+}
+
+li {
+  margin: 0 auto;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(0, 12, 13);
+  padding: Spx 10px;
+}
+
+nav a:hover {
+  background-color: aquamarine;
+}
+
+.loin {
+  width: 350px;
+  height: 400px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.header {
+  width: 200px;
+  border-radius: 100px;
+
+}
+
+.mainb {
+  padding: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+label {
+  width: 100px;
+  text-align: right;
+  display: inline-block;
+}
+
+button {
+  width: 330px;
+  height: 30px;
+  margin: 10px;
+  background: rgba(77, 132, 226);
+  color: white;
+  border: none;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/backgound.css" type="text/css">
+  <title>傣医诊疗系统-首页</title>
+  <link type="text/css" href="../static/index.css" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .one {
+      border: solid 5px silver;
+      display: flex;
+      /* 弹性盒子默认水平排列 */
+      flex-direction: row;
+      /* 轴的翻转 */
+      width: 100vw;
+      height: 100vh;
+      /* column,则为列排列 */
+      flex-wrap: wrap;
+      /* justify-content: center; */
+      /* 主轴居中 */
+      align-content: center;
+      /* 侧轴居中 */
+      margin: 0 auto;
+    }
+
+    body {
+      padding-left: 100px;
+      padding-top: 10px;
+    }
+
+
+    .one * {
+      height: 100px;
+    }
+
+    div:nth-child(1) {
+      display: flex;
+      width: 30vw;
+      height: 100vh;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      flex-wrap: wrap;
+      margin: 5px;
+    }
+
+    div:nth-child(1) * {
+      margin: 20px;
+    }
+
+    div:nth-child(2) {
+      width: 30vw;
+      height: 100vh;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      align-items: center;
+      margin: 5px;
+    }
+
+    div:nth-child(3) {
+      width: 30vw;
+      height: 100vh;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      align-items: center;
+      margin: 5px;
+    }
+
+    div:nth-child(4) {
+      width: 200px;
+      height: 550px;
+      background-image: linear-gradient(to top right, #f6ff00, rgb(247, 247, 108), rgb(248, 247, 197));
+      align-items: center;
+    }
+
+    button {
+      background-color: greenyellow;
+      color: black;
+      width: 130px;
+      font-size: 20px;
+    }
+
+    button:hover {
+      background-color: orange;
+    }
+
+    .navul {
+      list-style: none;
+      display: flex;
+      background-color: rgb(134, 246, 130);
+      padding: 10px;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      // 当点击链接时
+      $("a.special").click(function (event) {
+        event.preventDefault(); // 阻止默认跳转行为
+        var href = $(this).attr("href"); // 获取链接地址
+        $.ajax({
+          url: href, // 发送异步请求
+          success: function (response) {
+            $("#content").html(response); // 在页面中显示返回内容
+          },
+          error: function () {
+            alert("加载失败，请重试！");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;" class="one">
+  <div class="container">
+    <div style="width: 25vw; height: 10vh;">
+      <form class="" method="GET" action="{{ url_for('auth.search') }}">
+        <input class="" type="search" placeholder="关键字" aria-label="Search" name="q">
+        <button class="" type="submit">搜索</button>
+      </form>
+    </div>
+    <table border="1" width="25vw" align="center" cellspacing="0" style="margin: 0 auto;">
+      {% for patient_user in patient_users %}
+      <tr>
+        <th>序号</th>
+        <th>患者姓名</th>
+        <th>性别</th>
+        <th>民族</th>
+        <th>身份证号</th>
+        <th>个人联系电话</th>
+        <th>亲属联系电话</th>
+        <th>时间</th>
+      </tr>
+      <tr>
+        <td>{{ patient_user.id }}</td>
+        <td>{{ patient_user.username }}</td>
+        <td>{{ patient_user.sex }}</td>
+        <td>{{ patient_user.nation }}</td>
+        <td>{{ patient_user.id_number }}</td>
+        <td>{{ patient_user.tel }}</td>
+        <td>{{ patient_user.re_tel }}</td>
+        <td>{{ patient_user.join_time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div>
+    <form method="POST" action="/auth/doctor_nav_bzf_main">
+      <label>患者姓名</label>
+      <input type="text" class="header" name="patient">
+      <label for="exampleInputPassword1">遗传病史</label>
+      <input type="text" class="header" name="genetic_lii">
+      <label for="exampleInputPassword1">过往病史</label>
+      <input type="text" class="header" name="past_lii">
+      <label for="exampleInputEmail1">过敏史</label>
+      <input type="text" class="header" name="allergy_lii">
+      <label for="exampleInputEmail1">目</label>
+      <input type="text" class="header" name="e5_eye">
+      <label for="exampleInputEmail1">鼻</label>
+      <input type="text" class="header" name="e5_nose">
+      <label for="exampleInputEmail1">耳</label>
+      <input type="text" class="header" name="e5_ear">
+      <label for="exampleInputEmail1">唇</label>
+      <input type="text" class="header" name="e5_lip">
+      <label for="exampleInputEmail1">舌</label>
+      <input type="text" class="header" name="e5_tongue">
+      <label for="exampleInputEmail1">毛发</label>
+      <input type="text" class="header" name="hair">
+      <label for="exampleInputEmail1">脸色</label>
+      <input type="text" class="header" name="face">
+      <label for="exampleInputEmail1">四肢</label>
+      <input type="text" class="header" name="limb">
+      <label for="exampleInputEmail1">皮肤</label>
+      <input type="text" class="header" name="skin">
+      <label for="exampleInputEmail1">发病部位</label>
+      <input type="text" class="header" name="lii_site">
+      <label for="exampleInputEmail1">精神状态</label>
+      <input type="text" class="header" name="mentality">
+      <label for="exampleInputEmail1">确定病因</label>
+      <input type="text" class="header" name="etiology">
+      <label for="exampleInputEmail1">主治医师</label>
+      <input type="text" class="header" name="doctor">
+      <button type="submit" class="btn btn-primary btn-block">保存提交</button>
+    </form>
+  </div>
+  <div>
+    <form method="POST" action="/auth/doctor_nav_dzkf_main">
+      <label for="exampleInputEmail1">患者姓名</label>
+      <input type="text" class="header" name="patient">
+      <label for="exampleInputPassword1">治疗方案</label>
+      <input type="text" name="treatment" class="header">
+      <label for="exampleInputEmail1">治疗时间</label>
+      <input type="text" class="header" name="treatment_time">
+      <label for="exampleInputEmail1">复诊时间</label>
+      <input type="text" class="header" name="fllow_treatment">
+      <label for="exampleInputEmail1">合计费用</label>
+      <input type="text" class="header" name="cost">
+      <label for="exampleInputEmail1">主治医师</label>
+      <input type="text" class="header" name="doctor">
+      <button type="submit">提交</button>
+    </form>
+  </div>
+</body>
+
+
+</html>

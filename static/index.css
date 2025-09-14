@@ -1,0 +1,40 @@
+.mainb {
+  padding: 170px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loin {
+  width: 350px;
+  height: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+h2 {
+  font-size: 40px;
+}
+
+form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  width: 270px;
+}
+
+button {
+  width: 260px;
+  height: 30px;
+  margin: 10px;
+  background: rgb(77, 176, 226);
+  color: white;
+  border: none;
+}

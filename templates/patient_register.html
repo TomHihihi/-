@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/init.css">
+  <title>患者-注册</title>
+  <style>
+    .mainb {
+      padding: 150px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .loin {
+      width: 350px;
+      height: 270px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    form {
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .header {
+      width: 200px;
+      border-radius: 100px;
+
+    }
+
+    button {
+      width: 260px;
+      height: 30px;
+      margin: 10px;
+      background: rgba(77, 132, 226);
+      color: white;
+      border: none;
+    }
+
+    label {
+      width: 100px;
+      text-align: right;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;">
+  <div class="mainb">
+    <div class="loin">
+      <form method="POST">
+        <div class="form-group">
+          <label for="exampleInputEmail1">用户名</label>
+          <input type="text" class="header" name="username">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">密码</label>
+          <input type="password" class="header" id="exampleInputPassword1" name="password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">确认密码</label>
+          <input type="password" class="header" name="password_confirm">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">性别</label>
+          <input type="text" class="header" name="sex">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">身份证</label>
+          <input type="text" class="header" name="id_number">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">住址</label>
+          <input type="text" class="header" name="address">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">个人联系电话</label>
+          <input type="text" class="header" name="tel">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">亲属联系电话</label>
+          <input type="text" class="header" name="re_tel">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">民族</label>
+          <input type="text" class="header" name="nation">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">立即注册</button>
+        <a href="/"><button type="button">退出</button></a>
+        <a href="http://localhost:5173/login#/loginqwe"><button type="button">//测试端口（跨域）</button></a>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+/*行内元素则需要用test-align:center*/
+.son {
+  width: 200px;
+  height: 200px;
+  margin: 200px;
+  background-color: blueviolet;
+}

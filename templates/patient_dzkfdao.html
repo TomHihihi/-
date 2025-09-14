@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./static/css/init.css">
+  <link rel="stylesheet" href="./static/css/detail.css">
+  <title>患者挂号页面</title>
+  <style>
+    .mainb {
+      padding: 170px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .loin {
+      width: 350px;
+      height: 400px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    form {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .header {
+      width: 270px;
+    }
+
+
+    table {
+      border: 1;
+      width: 500;
+      align-content: center;
+      align-self: center;
+      background-color: rgb(128, 254, 128);
+      margin: 0 auto;
+    }
+
+    .container {
+      background-color: white;
+      height: 800px;
+      align-items: center;
+      width: 600px;
+      align-self: center;
+      margin: 0 auto;
+    }
+
+    span {
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgb(0, 12, 13);
+      padding: Spx 10px;
+    }
+
+    nav a:hover {
+      background-color: aquamarine;
+    }
+
+    .navul {
+      list-style: none;
+      display: flex;
+      background-color: rgb(134, 246, 130);
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;">
+  {% if patient_user %}
+  <nav>
+    <ul class="navul">
+      <li><span style="margin: 0 30px 0 0;">当前登录：{{ patient_user.username }}</span></li>
+      <li><span><a href="{{ url_for('auth.logout') }}">退出登录</a></span></li>
+    </ul>
+  </nav>
+  {% else %}
+  <ul class="navul">nonononon</ul>
+  {% endif %}
+
+  </form>
+  <div class=" container">
+    <table id="anniu" border="1" width="500" align="center" cellspacing="0" style="display: block;">
+      {% for med in meds %}
+      <tr>
+        <th>患者姓名</th>
+        <th>治疗方案</th>
+        <th>治疗时间</th>
+        <th>复诊时间</th>
+        <th>医生工号</th>
+        <th>合计花费</th>
+        <th>主治医师</th>
+        <th>开方时间</th>
+      </tr>
+      <tr>
+        <td>{{ med.patient }}</td>
+        <td>{{ med.treatment }}</td>
+        <td>{{ med.treatment_time }}</td>
+        <td>{{ med.fllow_treatment }}</td>
+        <td>{{ med.workid }}</td>
+        <td>{{ med.cost }}</td>
+        <td>{{ med.doctor }}</td>
+        <td>{{ med.join_time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div><a href="{{ url_for('auth.logout') }}">退出登录</a></div>
+
+    </form>
+
+
+  </div>
+
+
+</body>
+<script>
+  var anniu = document.getElementById('anniu')
+  var form = document.getElementById('myform')
+  function chaxun() {
+    form.submit();
+    anniu.style.display = 'block'
+  }
+</script>
+
+
+</html>

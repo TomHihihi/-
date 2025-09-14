@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .navul {
+      list-style: none;
+      display: flex;
+      background-color: rgb(134, 246, 130);
+      padding: 10px;
+    }
+
+    li {
+      margin: 0 auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgb(0, 12, 13);
+      padding: Spx 10px;
+    }
+
+    nav a:hover {
+      background-color: aquamarine;
+    }
+
+    .loin {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-color: rgba(255, 255, 255, 0.7); */
+      flex-direction: column;
+      height: 57vh;
+    }
+
+    .header {
+      width: 200px;
+      border-radius: 0;
+
+    }
+
+    .mainb {
+      padding: 150px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    label {
+      width: 100px;
+      text-align: right;
+      display: inline-block;
+    }
+
+    button {
+      width: 330px;
+      height: 30px;
+      margin: 10px;
+      background: rgb(110, 77, 243);
+      color: white;
+      border: none;
+      border-radius: 100px;
+    }
+
+    input {
+      margin: 2px;
+    }
+
+    /* .container {
+      width: 1000px;
+      height: 3000px;
+      overflow: auto;
+      background-color: wheat;
+      align-items: center;
+      margin: 0 auto;
+    } */
+  </style>
+</head>
+
+<!-- <body background="../static/images/27.jpg"
+  style="background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;"> -->
+
+<body>
+  <div class="container">
+    {% if user %}
+    <nav>
+      <ul class="navul">
+        <li><a href="/auth/doctor_nav_hzgl">患者管理</a></li>
+        <li><a href="/auth/doctor_nav_bzfx">病症分析</a></li>
+        <li><a href="/auth/doctor_nav_dzkf">对症开方</a></li>
+        <li><span>当前登录：{{ user.username }}</span></li>
+      </ul>
+    </nav>
+    {% endif %}
+    <div class="mainb">
+      <div class="loin">
+        <form method="POST">
+          <div class="form-group">
+            <label>患者姓名</label>
+            <input type="text" class="header" name="patient">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">遗传病史</label>
+            <input type="text" class="header" name="genetic_lii">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">过往病史</label>
+            <input type="text" class="header" name="past_lii">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">过敏史</label>
+            <input type="text" class="header" name="allergy_lii">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">目</label>
+            <input type="text" class="header" name="e5_eye">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">鼻</label>
+            <input type="text" class="header" name="e5_nose">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">耳</label>
+            <input type="text" class="header" name="e5_ear">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">唇</label>
+            <input type="text" class="header" name="e5_lip">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">舌</label>
+            <input type="text" class="header" name="e5_tongue">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">毛发</label>
+            <input type="text" class="header" name="hair">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">脸色</label>
+            <input type="text" class="header" name="face">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">四肢</label>
+            <input type="text" class="header" name="limb">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">皮肤</label>
+            <input type="text" class="header" name="skin">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">发病部位</label>
+            <input type="text" class="header" name="lii_site">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">精神状态</label>
+            <input type="text" class="header" name="mentality">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">确定病因</label>
+            <input type="text" class="header" name="etiology">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">主治医师</label>
+            <input type="text" class="header" name="doctor">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">保存提交</button>
+          <a href="/auth/doctor_nav_hzgl"><button type="button">刷新</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
